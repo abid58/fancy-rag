@@ -20,8 +20,7 @@ def read_config(parser: ConfigParser, filepath: str) -> None:
 env_config = ConfigParser()
 CONFIG_FILE = "./env/env.conf"
 read_config(env_config, CONFIG_FILE)
-#OPENAI_API_KEY = env_config.get(section="OPENAI", option="OPENAI_API_KEY")
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = env_config.get(section="OPENAI", option="OPENAI_API_KEY")
 logger.info(f"running with openai key: {OPENAI_API_KEY}")
 
 
