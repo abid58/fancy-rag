@@ -25,7 +25,7 @@ OPENAI_API_KEY = env_config.get(section="OPENAI", option="OPENAI_API_KEY")
 
 @cl.on_chat_start
 async def on_chat_start():
-    model = ChatOpenAI(streaming=True, openai_api_key=OPENAI_API_KEY)
+    model = ChatOpenAI(model="gpt-4o-mini", streaming=True)
     prompt = ChatPromptTemplate.from_messages(
         [
             (
@@ -52,3 +52,4 @@ async def on_message(message: cl.Message):
         await msg.stream_token(chunk)
 
     await msg.send()
+ 
