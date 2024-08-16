@@ -6,9 +6,7 @@ import chainlit as cl
 from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain.chains import (
-    ConversationalRetrievalChain,
-)
+from langchain.chains import ConversationalRetrievalChain
 from langchain_openai import ChatOpenAI
 from langchain.docstore.document import Document
 from langchain_community.chat_message_histories import ChatMessageHistory
