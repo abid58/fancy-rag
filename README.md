@@ -27,12 +27,15 @@ pip install -r requirements.txt
 
 3. **Run the Application:**
 
-```shell
-chainlit run rag_txt.py #for text files
-```
-```shell
-chainlit run rag_pdft.py #for pdf files
-```
+   for text files:
+   ```shell
+   chainlit run rag_txt.py 
+   ```
+
+   for pdf files:
+   ```shell
+   chainlit run rag_pdf.py 
+   ```
 
 
-   Access the application at `http://localhost:8000`.
+4. Access the application at `http://localhost:8000`.
