@@ -26,8 +26,13 @@ pip install -r requirements.txt
 * Create a `.env` file with your `OPENAI_API_KEY`.
 
 3. **Run the Application:**
+
 ```shell
-chainlit run rag.py
+chainlit run rag_txt.py #for text files
 ```
+```shell
+chainlit run rag_pdft.py #for pdf files
+```
+
 
    Access the application at `http://localhost:8000`.
