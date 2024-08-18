@@ -13,25 +13,23 @@ from langchain.callbacks.base import BaseCallbackHandler
 
 import chainlit as cl
 
+EMBEDDINGS_MODEL = OpenAIEmbeddings()
+MODEL = ChatOpenAI(model_name="gpt-4", streaming=True)
 
-chunk_size = 1024
-chunk_overlap = 128
-
-embeddings_model = OpenAIEmbeddings()
 
 PDF_STORAGE_PATH = "./docs"
 
 def process_pdfs(pdf_storage_path: str):
     pdf_directory = Path(pdf_storage_path)
     docs = []  # type: List[Document]
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=128)
 
     for pdf_path in pdf_directory.glob("*.pdf"):
         loader = PyMuPDFLoader(str(pdf_path))
         documents = loader.load()
         docs += text_splitter.split_documents(documents)
 
-    doc_search = Chroma.from_documents(docs, embeddings_model)
+    doc_search = Chroma.from_documents(docs, EMBEDDINGS_MODEL)
 
     namespace = "chromadb/my_documents"
     record_manager = SQLRecordManager(
@@ -52,7 +50,6 @@ def process_pdfs(pdf_storage_path: str):
 
 
 doc_search = process_pdfs(PDF_STORAGE_PATH)
-MODEL = ChatOpenAI(model_name="gpt-4", streaming=True)
 
 TEMPLATE = """Answer the question based only on the following context:
 
