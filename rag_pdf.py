@@ -3,7 +3,7 @@ from pathlib import Path
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema import StrOutputParser
-from langchain_community.document_loaders import PyMuPDFLoader
+from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain.indexes import SQLRecordManager, index
@@ -25,7 +25,7 @@ def process_pdfs(pdf_storage_path: str):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=128)
 
     for pdf_path in pdf_directory.glob("*.pdf"):
-        loader = PyMuPDFLoader(str(pdf_path))
+        loader = PyPDFLoader(str(pdf_path), extract_images=True)
         documents = loader.load()
         docs += text_splitter.split_documents(documents)
 

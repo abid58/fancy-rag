@@ -4,4 +4,4 @@ langchain_openai
 openai
 chromadb
 tiktoken
-pymupdf
+pypdf

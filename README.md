@@ -3,13 +3,13 @@
 
 ![image info](./images/rag_arch.webp)
 
-This repository contains a Chainlit application that provides a question-answering service using documents stored in a Chroma vector store. It allows users to upload txt documents, which are then chunked, embedded, and indexed for efficient retrieval. When a user asks a question, the application retrieves relevant document chunks and uses OpenAI's language model to generate an answer, citing the sources it used.
+This repository contains a Chainlit application that provides a question-answering service using documents stored in a Chroma vector store. It allows users to upload plain text or pdf files, which are then chunked, embedded, and indexed for efficient retrieval. When a user asks a question, the application retrieves relevant document chunks and uses OpenAI's language model to generate an answer, citing the sources it used.
 
 ### Prerequisites
 
 - Python 3.11 or higher
 - Chainlit installed
-- text files to be indexed
+- text/pdf files to be indexed
 
 ### Setup and Run
 
