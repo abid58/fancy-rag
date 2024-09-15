@@ -25,7 +25,8 @@ def process_pdfs(pdf_storage_path: str):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1024, chunk_overlap=128)
 
     for pdf_path in pdf_directory.glob("*.pdf"):
-        loader = PyPDFLoader(str(pdf_path), extract_images=True)
+        loader = PyPDFLoader(str(pdf_path), #extract_images=True# 
+                             )
         documents = loader.load()
         docs += text_splitter.split_documents(documents)
 
